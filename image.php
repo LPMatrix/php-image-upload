@@ -1,7 +1,7 @@
 <html>
 <body>
 		
-<form method="POST" action="hmm.php" enctype="multipart/form-data">
+<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
  <input type="file" name="user_image">
  <input type="submit" name="btnsave" value="Upload">
 </form>
@@ -46,7 +46,7 @@
    $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
   
    // rename uploading image
-   $userpic = rand(1,1000000).".".$imgExt;
+   $userpic = $imgFile.".".$imgExt;
     
    // allow valid image file formats
    if(in_array($imgExt, $valid_extensions)){   
